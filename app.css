@@ -1,0 +1,116 @@
+* {outline: 1px solid red;}
+
+:root {}
+
+/* section {
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 2rem;
+} */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  margin-left: 2rem;
+}
+.btn:first-child {
+  margin-left: 0;
+}
+a.btn, button.btn {
+  display: inline-block; /* necessary for the <a> */
+  padding: 1rem;
+  width: 120px;
+  text-align: center;
+}
+
+/* change these colors later */
+a.btn             {color: black; background-color: red; text-decoration: none;}
+a.btn:visited     {color: black; background-color: red;}
+a.btn:hover       {color: black; background-color: yellow;}
+a.btn:active      {color: black; background-color: green;}
+button.btn        {color: black; background-color: red;}
+button.btn:hover  {color: black; background-color: yellow;}
+/* button.btn:active {} */
+
+.list-style-none {list-style: none;}
+
+header.app-header .flex-container {align-items: center;}
+
+header.app-header {
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.quiz-session-details {}
+
+.quiz-progress, .quiz-score {margin: auto;}
+
+.quiz-progress {}
+
+.quiz-score {}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start-screen, .quiz-screen, .end-screen {
+  max-width: 720px; /* keep it tight and focused */
+  /* margin-top: 1rem; */
+  padding: 2rem;
+}
+
+.start-screen {}
+
+.quiz-screen {}
+
+.quiz-screen fieldset {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.quiz-screen legend {
+  text-align: center;
+}
+
+.quiz-screen form input[type=radio] {}
+
+.quiz-screen form label {}
+
+.questionFeedback {
+  visibility: hidden; /* initial state */
+}
+
+.end-screen {}
+
+/****************************************
+FLEXBOX styles
+****************************************/
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-align-center {
+  align-items: center;
+}
+
+.flex-item-1x {flex: 1;}
+.flex-item-2x {flex: 2;}
+.flex-item-3x {flex: 3;}
+.flex-item-4x {flex: 4;}
+
+/****************************************
+Media Queries
+****************************************/
+
+@media all and (min-width: 768px) {
+  .flex-container {
+    flex-direction: row;
+  }
+}
