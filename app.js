@@ -1,106 +1,163 @@
-/* Example store structure */
+// @ts-check /* include typescript checker for VS Code */
+
 const store = {
-  // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'The main function of the kidney is...',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'To control blood pressure',
+        'To control body temperature',
+        'To remove waste products from the body',
+        'To help in digestion of food'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'To remove waste products from the body'
     },
     {
-      question: 'What is the current year?',
+      question: 'Which of these happens for an endothermic reaction?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Heat is evolved',
+        'Heat is absorbed',
+        'Temperature increases',
+        'Light is produced'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Heat is absorbed'
+    },
+    {
+      question: 'Approximately how long does it takes energy generated in the core of the sun to reach the surface of the sun and be radiated?',
+      answers: [
+        'Three seconds',
+        'Two weeks',
+        'Five hundred years',
+        'One thousand years'
+      ],
+      correctAnswer: 'One thousand years'
+    },
+    {
+      question: 'Which type of tree grows from an acorn?',
+      answers: [
+        'Ash',
+        'Lime',
+        'Elm',
+        'Oak'
+      ],
+      correctAnswer: 'Oak'
+    },
+    {
+      question: 'Which natural phenomenon does a Seismologist study?',
+      answers: [
+        'Caves',
+        'Earthquakes',
+        'Mountains',
+        'Sizes'
+      ],
+      correctAnswer: 'Earthquakes'
     }
   ],
   quizStarted: false,
+  quizEnded: false,
   questionNumber: 0,
   score: 0
 };
 
-const quizSessionDetails = 
-`
-<div class="quiz-session-details flex-item-1x">
-  <div class="quiz-score">Score: ${score}</div>
-</div>
-`;
-
-const startScreenContent = 
-`
-<div class="start-screen">
-  <p>${quizDescription}</p>
-  <div class="btn-container">
-    <button type="button" class="btn" class="linkToQuizScreen">Start Quiz</button>
-  </div>
-</div>
-`;
-
-const quizScreenContent = 
-`
-<div class="quiz-screen">
-	<p>${currentQuestion}</p>
-	<p class="questionFeedback">${questionFeedback}</p>
-	<form action="">
-		<fieldset>
-			<legend>&nbsp; Question ${questionNumber} of ${totalQuestions} &nbsp;</legend>
-			<!-- option template -->
-			<div>
-				<input type="radio" id="${radioButtonID}" value="${radioButtonValue}" name="${radioButtonGroup}">
-				<label for="${radioButtonID}">${radioButtonText}</label>
-			</div>
-		</fieldset>
-		<div class="btn-container">
-			<button type="submit" class="btn">submit</button>
-			<button type="button" class="btn">next</button>
-		</div>
-	</form>
-</div>
-`;
-
-const endScreenContent = 
-`
-<div class="end-screen">
-  <p>Your score is: ${quizFinalScore}</p>
-  <div class="btn-container">
-    <button type="button" class="btn" class="linkToStartScreen">Retake Quiz</button>
-  </div>
-</div>
-`;
-
-/**
- * 
- * Technical requirements:
- * 
- * Your app should include a render() function, that regenerates the view each time the store is updated. 
- * See your course material and access support for more details.
- *
- * NO additional HTML elements should be added to the index.html file.
- *
- * You may add attributes (classes, ids, etc) to the existing HTML elements, or link stylesheets or additional scripts if necessary
- *
- * SEE BELOW FOR THE CATEGORIES OF THE TYPES OF FUNCTIONS YOU WILL BE CREATING 👇
- * 
- */
 
 /********** TEMPLATE GENERATION FUNCTIONS **********/
+// These functions return HTML templates.
 
-// These functions return HTML templates
+function generateStartScreen() {
+  // generate start screen content
+  console.log('`generateStartScreen()` ran');
+}
+
+function generateQuizScreen() {
+  // generate quiz screen content
+  console.log('`generateQuizScreen()` ran');
+}
+
+function generateQuestionStatus() {
+  // generate question status content
+  console.log('`generateQuestionStatus()` ran');
+}
+
+function generateCurrentScore() {
+  // generate current score content
+  console.log('`generateCurrentScore()` ran');
+}
+
+function generateEndScreen() {
+  // generate end screen content
+  console.log('`generateEndScreen()` ran');
+}
+
 
 /********** RENDER FUNCTION(S) **********/
+/* REQUIRED: app must include a render() function that regenerates the view each time the store is updated */
 
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-function render() {}
+function render() {
+  // conditionally replace the contents of the <main> tag based on state of store
+  if        (!store.quizStarted) {
+    console.log(`renderStartScreen() called`);
+    // if quiz has not started, render the start screen.
+    renderStartScreen();
+  } else if (store.quizStarted && !store.quizEnded) {
+    console.log(`renderQuizScreen() called`);
+    // if quiz has started and isn't ended, render the current question.
+    renderQuizScreen();
+  } else if (store.quizEnded) {
+    console.log(`renderEndScreen() called`);
+    // if quiz has ended, render the end screen.
+    renderEndScreen();
+  }
+}
+
+function renderStartScreen() {
+  // when called in render(), put start screen state into the view
+}
+
+function renderQuizScreen() {
+  // when called in render(), put quiz screen state into the view
+}
+
+function renderEndScreen() {
+  // when called in render(), put end screen state into the view
+}
+
 
 /********** EVENT HANDLER FUNCTIONS **********/
-
 // These functions handle events (submit, click, etc)
+
+function handleTheQuiz() {
+  render();
+  startTheQuiz();
+  submitAnswer();
+  goToNextQuestion()
+  goToEndScreen();
+  restartTheQuiz();
+}
+
+function startTheQuiz() {
+  // when user clicks button, the quiz starts
+  console.log('`startTheQuiz()` ran');
+}
+
+function submitAnswer() {
+  // when user submits answer, show if it's correct or incorrect (with answer)
+  console.log('`submitAnswer()` ran');
+}
+
+function goToNextQuestion() {
+  // when user clicks button, show the next question
+  console.log('`goToNextQuestion()` ran');
+}
+
+function goToEndScreen() {
+  // when user clicks button (on last question), show the end screen
+  console.log('`goToEndScreen()` ran');
+}
+
+function restartTheQuiz() {
+  // when user clicks button, reset app state and show the start screen
+  console.log('`restartTheQuiz()` ran');
+}
+
+// on page load, call handleTheQuiz() to begin the app flow
+$(handleTheQuiz);
